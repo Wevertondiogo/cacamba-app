@@ -1,0 +1,124 @@
+.main-home {
+  .banner {
+    @include widthAndHeight(100%, 91vh);
+    @extend %d-center;
+    position: relative;
+    background-image: url("./../img/cidade.jpg");
+    background-size: cover;
+    &::before {
+      content: "";
+      @include widthAndHeight(100%, 100%);
+      position: absolute;
+      background: $navbar;
+      opacity: 0.55;
+    }
+    &__content {
+      @include widthAndHeight(31%, 50%);
+      @extend %d-center, %d-col;
+      z-index: 1;
+      &__title {
+        position: relative;
+        bottom: 20%;
+        font-size: 55px;
+        animation: title 1.5s forwards ease;
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      .btn-group {
+        @extend %d-evenly;
+        width: 100%;
+      }
+      .btn-cadastro,
+      .btn-contact {
+        padding: 18px 18px;
+        border-radius: 7px;
+        opacity: 0;
+        border: 2px solid $backgroundBoxSub;
+        font: {
+          size: 22px;
+          weight: bold;
+        }
+        transition: 0.5s;
+        animation: btns 1.5s forwards ease;
+        background: $backgroundBoxSub;
+      }
+      .btn-cadastro {
+        animation-delay: 0.5s;
+        &:hover {
+          border: 2px solid $navbar;
+          background: $navbar;
+        }
+      }
+      .btn-contact {
+        animation-delay: 0.7s;
+        background: transparent;
+        &:hover {
+          background: $backgroundBoxSub;
+        }
+      }
+      @keyframes title {
+        from {
+          transform: translateX(-300px);
+          opacity: 0.2;
+        }
+        to {
+          left: 0;
+          opacity: 1;
+        }
+      }
+      @keyframes btns {
+        from {
+          transform: translatey(120px) rotatey(360deg) skewY(30deg) scaleX(1.5);
+          opacity: 0.2;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.modal-x {
+  position: absolute;
+  right: 30px;
+  font: {
+    size: 30px;
+    weight: bold;
+    transition: 0.5s;
+  }
+  &:hover {
+    text-shadow: 0 0 1px #000;
+  }
+  cursor: pointer;
+}
+.modal-btn-close {
+  position: relative;
+  bottom: 65px;
+  left: 285px;
+  border: none;
+  padding: 7px 35px;
+  cursor: pointer;
+  outline: none;
+  background: $navbar;
+  color: $title;
+  font-size: 18px;
+  border-radius: 2px;
+  transition: 0.5s;
+  &:hover {
+    box-shadow: 0 0 5px #000;
+  }
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  z-index: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}

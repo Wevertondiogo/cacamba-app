@@ -1,0 +1,93 @@
+@media (min-width: 1680px) and(max-width: 2560px) {
+  header {
+    height: 130px;
+  }
+  .navbar__link {
+    font-size: 50px !important;
+  }
+}
+
+@media (min-width: 600px) and(max-width: 1000px) {
+  .navbar__link {
+    font-size: 20px !important;
+    margin: 0 40px !important;
+  }
+}
+@media (min-width: 100px) and (max-width: 500px) {
+  .navbar {
+    display: flex;
+    justify-content: flex-end !important;
+    .market {
+      display: none;
+    }
+    .close {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50px;
+      width: 100%;
+      height: 30vh;
+      animation: close 0.5s alternate;
+    }
+    &__link {
+      font-size: 18px !important;
+      &.close-link {
+        display: none;
+      }
+      &.open-link {
+        padding: 10px 10px;
+        transition: 0.5s;
+        border-radius: 5px;
+        &:hover {
+          text-shadow: 0 0 2px $title;
+          background: $title;
+        }
+      }
+    }
+    .show {
+      @extend .close;
+      border-top: 1px solid $title;
+      animation: open 0.5s alternate-reverse;
+      background: $navbar;
+    }
+  }
+  .menu-btn {
+    display: flex !important;
+    margin-right: 20px;
+  }
+  @keyframes open {
+    from {
+      height: 30vh;
+    }
+    to {
+      height: 0;
+      opacity: 0.25;
+    }
+  }
+
+  @keyframes close {
+    from {
+      height: 30vh;
+      background: #fff;
+    }
+    to {
+      height: 0;
+      opacity: 0.25;
+      background: #c2c2c2;
+    }
+  }
+}
+
+// 5 goals selfish in my life
+
+// 1- write one book
+
+// 2 it travel to the united states
+
+// 3- be a polyglot
+
+// 4- read  360 books
+
+// 5- be an entrepreneur or an investor

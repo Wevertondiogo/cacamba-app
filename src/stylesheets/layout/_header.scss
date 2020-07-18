@@ -1,0 +1,70 @@
+header {
+  @extend %d-center;
+  @include widthAndHeight(100%, 70px);
+
+  .navbar {
+    @extend %d-center;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    &__link {
+      z-index: 1;
+      @include font(30px, bold);
+      margin: 0 60px;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+    .market {
+      @include widthAndHeight(100px, 4px);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: $backgroundBoxSub;
+      transition: 0.5s;
+      border-radius: 4px;
+    }
+    .menu-btn {
+      @include widthAndHeight(45px, 40px);
+      @extend %d-center;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      background: none;
+      display: none;
+      // ANIMATION
+      &.x .menu-btn__burger {
+        transform: translateX(-50px);
+        background: transparent;
+        box-shadow: none;
+        &::before {
+          transform: rotate(45deg) translate(35px, -35px);
+          background: #fff;
+        }
+        &::after {
+          transform: rotate(-45deg) translate(35px, 35px);
+          background: #fff;
+        }
+      }
+      //
+      &__burger {
+        @include widthAndHeight(35px, 6px);
+        position: relative;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+        transition: all 0.5s ease-in-out;
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          @extend .menu-btn__burger;
+        }
+        &::before {
+          transform: translateY(-10px);
+        }
+        &::after {
+          transform: translateY(10px);
+        }
+      }
+    }
+  }
+}

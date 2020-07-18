@@ -1,0 +1,25 @@
+%d-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%d-col {
+  display: flex;
+  flex-direction: column;
+}
+%d-evenly {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@mixin widthAndHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin font($size, $weight) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+}
